@@ -65,15 +65,14 @@ function Works() {
                       </span>
                     </span>
                   </div>
-                  <div
-                    aria-hidden
-                    className="flex h-32 items-center justify-center bg-muted/40 font-heading text-xs text-muted-foreground"
-                  >
+                  <div className="flex h-32 items-center justify-center bg-muted/40 font-heading text-xs text-muted-foreground">
                     {project.image ? (
                       <img
                         src={project.image}
-                        alt=""
-                        className="size-full object-cover"
+                        alt={`${project.title} screenshot`}
+                        loading="lazy"
+                        decoding="async"
+                        className="size-full object-cover object-top"
                       />
                     ) : (
                       "<screenshot />"
