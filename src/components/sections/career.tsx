@@ -7,7 +7,7 @@ import { SectionHeading, SectionShell } from "@/components/section-shell";
 import { milestones } from "@/data/milestones";
 import { useAutoplay } from "@/hooks/use-autoplay";
 
-const AUTOPLAY_INTERVAL = 5000;
+const AUTOPLAY_INTERVAL = 4000;
 const CAREER_START_YEAR = 2019;
 const yearsOfExperience = new Date().getFullYear() - CAREER_START_YEAR;
 

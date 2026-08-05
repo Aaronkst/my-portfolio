@@ -81,13 +81,37 @@ function Contact() {
     <SectionShell id="contact">
       <SectionHeading>Contact</SectionHeading>
       <motion.div
-        className="grid gap-8 md:grid-cols-[1fr_auto]"
+        className="mx-auto w-full max-w-xl"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <Card className="max-w-xl">
+        <div className="flex justify-center gap-3">
+          {socials.map((social) => {
+            const Icon = icons[social.icon];
+            return (
+              <Button key={social.label} variant="outline" asChild>
+                <a
+                  href={social.href}
+                  target={social.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noreferrer"
+                >
+                  <Icon data-icon="inline-start" />
+                  {social.label}
+                </a>
+              </Button>
+            );
+          })}
+        </div>
+
+        <div aria-hidden className="my-8 flex items-center gap-4">
+          <span className="h-px flex-1 bg-border" />
+          <span className="font-heading text-xs text-muted-foreground">OR</span>
+          <span className="h-px flex-1 bg-border" />
+        </div>
+
+        <Card>
           <CardHeader>
             <CardTitle>Send a message</CardTitle>
           </CardHeader>
@@ -153,24 +177,6 @@ function Contact() {
             </form>
           </CardContent>
         </Card>
-
-        <div className="flex flex-row gap-2 md:flex-col">
-          {socials.map((social) => {
-            const Icon = icons[social.icon];
-            return (
-              <Button key={social.label} variant="outline" asChild>
-                <a
-                  href={social.href}
-                  target={social.href.startsWith("http") ? "_blank" : undefined}
-                  rel="noreferrer"
-                >
-                  <Icon data-icon="inline-start" />
-                  {social.label}
-                </a>
-              </Button>
-            );
-          })}
-        </div>
       </motion.div>
       <p className="mt-16 font-heading text-xs text-muted-foreground">
         $ echo "thanks for scrolling"

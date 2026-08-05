@@ -1,7 +1,10 @@
 import { motion, type Variants } from "motion/react";
+import { Download } from "lucide-react";
 
 import { SectionShell } from "@/components/section-shell";
+import { Button } from "@/components/ui/button";
 import { site } from "@/data/site";
+import resumeUrl from "@/assets/Resume - Khant Si Thu.pdf";
 
 const container: Variants = {
   hidden: {},
@@ -50,6 +53,14 @@ function Hero() {
         >
           {site.bio}
         </motion.p>
+        <motion.div variants={item} className="mt-8">
+          <Button size="lg" asChild>
+            <a href={resumeUrl} download="Khant Si Thu - Resume.pdf">
+              <Download data-icon="inline-start" />
+              Download Resume
+            </a>
+          </Button>
+        </motion.div>
         <motion.p
           variants={item}
           aria-hidden
